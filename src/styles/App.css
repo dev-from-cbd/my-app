@@ -12,13 +12,23 @@
 .App {
   width: 100vw;
   height: 100vh;
-
-  border: 2px solid red;
+  border: 0.3rem solid red;
 }
 
 .post {
   display: flex;
-  padding: 15px;
-  border: 2px solid teal;
+  padding: 1rem;
+  border: 0.3rem solid teal;
   margin-top: 15px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.post__btn__Delete {
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 2rem;
+  cursor: pointer;
 }
