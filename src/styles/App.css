@@ -1,34 +1,45 @@
+/* Reset default margin, padding, and box-sizing for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Style the root element (usually a div with id="root") */
 #root {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center its child elements horizontally */
 }
 
+/* Style the "App" component element */
 .App {
-  width: 100vw;
-  height: 100vh;
-  border: 0.3rem solid red;
+  width: 100vw; /* Take the full width of the viewport */
+  height: 100vh; /* Take the full height of the viewport */
+  border: 0.3rem solid red; /* Add a red border of 0.3rem */
 }
 
+.App__h1 {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/* Style the "post" container element */
 .post {
-  display: flex;
-  padding: 1rem;
-  border: 0.3rem solid teal;
-  margin-top: 15px;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 500;
-  font-size: 2rem;
+  display: flex; /* Display its child elements in a row */
+  margin-top: 1rem; /* Add top margin of 15px */
+  margin-bottom: 1rem;
+  padding: 1rem; /* Add padding of 1rem */
+  border: 0.3rem solid teal; /* Add a teal border of 0.3rem */
+  justify-content: space-between; /* Space out its child elements evenly */
+  align-items: center; /* Center its child elements vertically */
+  font-weight: 500; /* Set font weight to 500 */
+  font-size: 2rem; /* Set font size to 2rem */
 }
 
+/* Style the "Delete" button inside the "post" container */
 .post__btn__Delete {
-  padding: 1rem;
-  font-weight: 500;
-  font-size: 2rem;
-  cursor: pointer;
+  padding: 1rem; /* Add padding of 1rem */
+  font-weight: 500; /* Set font weight to 500 */
+  font-size: 2rem; /* Set font size to 2rem */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
 }
