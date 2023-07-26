@@ -1,43 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
-// Define a class component called "ClassCounter"
-class ClassCounter extends React.Component {
-  constructor(props) {
-    super(props);
-    // The component's initial state is defined in the constructor
-    this.state = {
-      count: 0, // Initialize the "count" state to 0
-    };
-    // Bind the event handlers to the class instance
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
-  }
+// Define a functional component called "ClassCounter" using ES6 arrow function
+const ClassCounter = () => {
+  // Use the "useState" hook to create a state variable called "count" with initial value 0
+  const [count, setCount] = useState(0);
 
   // Event handler for the "Increment" button
-  increment() {
-    // Use the "setState" method to update the "count" state by incrementing it by 1
-    this.setState({ count: this.state.count + 1 });
-  }
+  const increment = () => {
+    // Update the "count" state by incrementing it by 1 using the "setCount" function
+    setCount(count + 1);
+  };
 
   // Event handler for the "Decrement" button
-  decrement() {
-    // Use the "setState" method to update the "count" state by decrementing it by 1
-    this.setState({ count: this.state.count - 1 });
-  }
+  const decrement = () => {
+    // Update the "count" state by decrementing it by 1 using the "setCount" function
+    setCount(count - 1);
+  };
 
-  render() {
-    // The component's UI is defined in the "render" method
-    return (
-      <div>
-        {/* Display the current value of the "count" state */}
-        <h1>{this.state.count}</h1>
-        {/* Button for incrementing the "count" */}
-        <button onClick={this.increment}>Increment</button>
-        {/* Button for decrementing the "count" */}
-        <button onClick={this.decrement}>Decrement</button>
-      </div>
-    );
-  }
-}
+  // The component's UI is defined in the return statement
+  return (
+    <div>
+      {/* Display the current value of the "count" state */}
+      <h1>{count}</h1>
+      {/* Button for incrementing the "count" */}
+      <button onClick={increment}>Increment</button>
+      {/* Button for decrementing the "count" */}
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
 
 export default ClassCounter;

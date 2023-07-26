@@ -43,3 +43,62 @@
   font-size: 2rem; /* Set font size to 2rem */
   cursor: pointer; /* Change the cursor to a pointer on hover */
 }
+
+/* Common styles for all buttons with the class "my-button" */
+.my-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for buttons with the class "primary" */
+.my-button.primary {
+  background-color: #007bff;
+}
+
+/* Style for buttons with the class "secondary" */
+.my-button.secondary {
+  background-color: #6c757d;
+}
+
+/* Style for buttons with the class "success" */
+.my-button.success {
+  background-color: #28a745;
+}
+
+/* Style for buttons with the class "danger" */
+.my-button.danger {
+  background-color: #dc3545;
+}
+
+/* Style for buttons with the class "warning" */
+.my-button.warning {
+  background-color: #ffc107;
+}
+
+/* Style for buttons with the class "info" */
+.my-button.info {
+  background-color: #17a2b8;
+}
+
+/* Style for buttons with the class "light" */
+.my-button.light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Style for buttons with the class "dark" */
+.my-button.dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+/* Hover effect for all buttons with the class "my-button" */
+.my-button:hover {
+  background-color: #0056b3;
+}
