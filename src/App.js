@@ -1,19 +1,7 @@
-// Import the React module and the useState hook from the "react" library
 import React, { useState } from "react";
-
-// Import the Counter component from the "./components/Counter" file
-//import Counter from "./components/Counter";
-
-// Import the ClassCounter component from the "./components/ClassCounter" file
-//import ClassCounter from "./components/ClassCounter";
-
-// Import the CSS file "./styles/App.css" to apply styles to the App component
 import "./styles/App.css";
-
-// Import the PostItem component from the "./components/PostItem" file
-//import PostItem from "./components/PostItem";
-
 import PostList from "./components/PostList";
+import MyButton from "./components/UI/button/MyButton";
 
 // Define the App component as a functional component
 function App() {
@@ -34,7 +22,7 @@ function App() {
       <form>
         <input type="text" placeholder="Name of post" />
         <input type="text" placeholder="Description of post" />
-        <button>Create a new post</button>
+        <MyButton>Create a new post</MyButton>
       </form>
 
       <PostList posts={posts} title="The List of posts" />
