@@ -1,8 +1,20 @@
+/* styles.css (or MyButton.module.css if you're using CSS modules) */
+
+/* Base styles for the .myBtn class */
 .myBtn {
   padding: 5px 15px;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
   color: teal;
   font-size: 14px;
   background-color: transparent;
   border: 1px solid teal;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Adding animation for color changes */
+}
+
+/* Styles for the .myBtn class when hovering over it */
+.myBtn:hover {
+  background-color: teal; /* Changing the background color on hover */
+  color: white; /* Changing the text color on hover */
 }

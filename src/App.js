@@ -1,35 +1,65 @@
 import React, { useState } from "react";
-import "./styles/App.css";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
+import MyInput from "./components/UI/input/MyInput";
+import "./styles/App.css";
 
-// Define the App component as a functional component
 function App() {
-  // Use the useState hook to create a "posts" state variable and a "setPosts" function to update the state
-  // Initialize the "posts" state with an array of two post objects
-  //const [posts, setPosts] = useState([
-  const [posts] = useState([
+  const [posts, setPosts] = useState([
     { id: 1, title: "JS", body: "JS is JavaScript" },
     { id: 2, title: "TS", body: "TS is TypeScript" },
-  ]);
-  const [posts2] = useState([
-    { id: 1, title: "Python", body: "I want to study Python" },
+    { id: 3, title: "ECMA-262", body: "ECMA-262 is ECMAScript" },
   ]);
 
-  // Return the JSX (React elements) to be rendered in the DOM
+  const [title, setTitle] = useState("");
+
+  const bodyInputRef = useRef("");
+
+  //const [description, setDescription] = useState("");
+
+  const addNewPost = (e) => {
+    e.preventDefault();
+
+    console.log(title);
+    console.log(bodyInputRef.current.value);
+
+    //const newPost = {
+    //id: posts.length + 1,
+    //title: title,
+    //body: description,
+    //};
+
+    //setPosts([...posts, newPost]);
+
+    //setTitle("");
+    //setDescription("");
+  };
+
+  const deletePost = (postId) => {
+    const updatedPosts = posts.filter((post) => post.id !== postId);
+    setPosts(updatedPosts);
+  };
+
   return (
     <div className="App">
       <form>
-        <input type="text" placeholder="Name of post" />
-        <input type="text" placeholder="Description of post" />
-        <MyButton>Create a new post</MyButton>
+        <MyInput
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Name of post"
+        />
+        <MyInput
+          ref={bodyInputRef}
+          type="text"
+          placeholder="Description of post"
+        />
+        <MyButton onClick={addNewPost}>Create a new post</MyButton>
       </form>
 
-      <PostList posts={posts} title="The List of posts" />
-      <PostList posts={posts2} title="About my dreams)" />
+      <PostList posts={posts} onDelete={deletePost} />
     </div>
   );
 }
 
-// Export the App component to make it available for other parts of the application
 export default App;
