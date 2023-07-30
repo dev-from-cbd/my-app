@@ -28,6 +28,8 @@
   display: flex; /* Display its child elements in a row */
   margin-top: 1rem; /* Add top margin of 15px */
   margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   padding: 1rem; /* Add padding of 1rem */
   border: 0.3rem solid teal; /* Add a teal border of 0.3rem */
   justify-content: space-between; /* Space out its child elements evenly */

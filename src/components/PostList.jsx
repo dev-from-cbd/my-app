@@ -1,16 +1,14 @@
 import React from "react";
+import PostItem from "./PostItem";
 
-const PostList = ({ posts, onDelete }) => {
+const PostList = ({ posts, title }) => {
   return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.id}>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-          <button onClick={() => onDelete(post.id)}>Delete</button>
-        </li>
+    <div>
+      <h1 style={{ textAlign: "center" }}>{title}</h1>
+      {posts.map((post, index) => (
+        <PostItem number={index + 1} post={post} key={post.id} />
       ))}
-    </ul>
+    </div>
   );
 };
 
