@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <PostForm create={createPost} />
-      <PostList posts={posts} title="Title" />
+      <PostList remove={removePost} posts={posts} title="Title" />
     </div>
   );
 }
