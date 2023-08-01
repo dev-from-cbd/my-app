@@ -23,6 +23,20 @@
   padding-top: 1rem;
 }
 
+.hr {
+  margin-top: 0.5rem;
+}
+
+.div {
+  margin-left: 2rem;
+}
+
+.select {
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+}
+
 /* Style the "post" container element */
 .post {
   display: flex; /* Display its child elements in a row */
@@ -44,6 +58,13 @@
   font-weight: 500; /* Set font weight to 500 */
   font-size: 2rem; /* Set font size to 2rem */
   cursor: pointer; /* Change the cursor to a pointer on hover */
+}
+
+.posts-are-missing {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 /* Common styles for all buttons with the class "my-button" */

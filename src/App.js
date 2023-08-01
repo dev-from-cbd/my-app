@@ -21,7 +21,20 @@ function App() {
   return (
     <div className="App">
       <PostForm create={createPost} />
-      <PostList remove={removePost} posts={posts} title="Title" />
+      <hr className="hr" />
+      <div className="div">
+        Sort by{""}
+        <select className="select">
+          <option value="value1">Name</option>
+          <option value="value2">Date</option>
+        </select>
+      </div>
+
+      {posts.length ? (
+        <PostList remove={removePost} posts={posts} title="Title" />
+      ) : (
+        <h1 className="posts-are-missing">Posts are missing</h1>
+      )}
     </div>
   );
 }
