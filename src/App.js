@@ -26,8 +26,11 @@ function App() {
       <div className="div">
         Sort by{""}
         <MySelect
-          defaultValue="Sort"
-          options={[{ value: "title", name: "body" }]}
+          defaultValue="Sort by ↓"
+          options={[
+            { value: "title", name: "Name" },
+            { value: "body", name: "Date" },
+          ]}
         />
       </div>
       {posts.length ? (
