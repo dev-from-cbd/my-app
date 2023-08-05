@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./MySelect.module.css";
 
-const MySelect = ({ options, defaultValue }) => {
+const MySelect = ({ options, defaultValue, value, onChange }) => {
   return (
     <select className={classes.mySlct}>
       <option disabled value="">
