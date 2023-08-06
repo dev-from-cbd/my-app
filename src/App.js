@@ -11,6 +11,8 @@ function App() {
     { id: 3, title: "ECMA-262", body: "ECMA-262 is ECMAScript" },
   ]);
 
+  const [selectedSort, setSelectedSort] = useState();
+
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
   };
