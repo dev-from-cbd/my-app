@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
+import MyInput from "./components/UI/input/MyInput";
 import MySelect from "./components/UI/select/MySelect";
 import "./styles/App.css";
 
 function App() {
   const [posts, setPosts] = useState([
-    { id: 1, title: "JS", body: "JS is JavaScript" },
-    { id: 2, title: "TS", body: "TS is TypeScript" },
-    { id: 3, title: "ECMA-262", body: "ECMA-262 is ECMAScript" },
+    { id: 1, title: "JS", dateofpost: "07.08.23", body: "JS is JavaScript" },
+    { id: 2, title: "TS", dateofpost: "06.08.23", body: "TS is TypeScript" },
+    {
+      id: 3,
+      title: "ECMA-262",
+      dateofpost: "05.08.23",
+      body: "ECMA-262 is ECMAScript",
+    },
   ]);
 
   const [selectedSort, setSelectedSort] = useState();
+
+  const [searchQuery, setSearchQuery] = useState();
+
+  const sortedPosts = [...posts].sort((a, b) =>
+    a[selectedSort].localeCompare(b[selectedSort])
+  );
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -21,22 +33,34 @@ function App() {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
+  const sortPosts = (sort) => {
+    setSelectedSort(sort);
+    setPosts(sortedPosts);
+  };
+
   return (
     <div className="App">
       <PostForm create={createPost} />
       <hr className="hr" />
       <div className="div">
+        <MyInput
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
         Sort by{""}
         <MySelect
+          value={selectedSort}
+          onChange={sortPosts}
           defaultValue="Sort by ↓"
           options={[
             { value: "title", name: "Name" },
-            { value: "body", name: "Date" },
+            { value: "dateofpost", name: "Date" },
           ]}
         />
       </div>
       {posts.length ? (
-        <PostList remove={removePost} posts={posts} title="Title" />
+        <PostList remove={removePost} posts={sortedPosts} title="Title" />
       ) : (
         <h1 className="posts-are-missing">Posts are missing</h1>
       )}
