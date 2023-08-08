@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import MyInput from "./components/UI/input/MyInput";
@@ -21,9 +21,18 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState();
 
-  const sortedPosts = [...posts].sort((a, b) =>
-    a[selectedSort].localeCompare(b[selectedSort])
-  );
+  const sortedPosts = useMemo(() => {
+    if (selectedSort) {
+      return [...posts].sort((a, b) =>
+        a[selectedSort].localeCompare(b[selectedSort])
+      );
+    }
+    return posts;
+  }, [selectedSort, posts]);
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((posts) => post.title.includes(searchQuery));
+  }, [searchQuery, sortPosts]);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
