@@ -32,9 +32,9 @@ function App() {
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((posts) =>
-      post.title.toLowerCase.includes(searchQuery)
+      posts.title.toLowerCase().includes(searchQuery)
     );
-  }, [searchQuery, sortPosts]);
+  }, [searchQuery, sortedPosts]);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -71,7 +71,11 @@ function App() {
         />
       </div>
       {posts.length ? (
-        <PostList remove={removePost} posts={sortedPosts} title="Title" />
+        <PostList
+          remove={removePost}
+          posts={sortedAndSearchedPosts}
+          title="Title"
+        />
       ) : (
         <h1 className="posts-are-missing">Posts are missing</h1>
       )}
