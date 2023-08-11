@@ -1,13 +1,14 @@
 // Import necessary modules and components
-import React, { useMemo, useState } from "react";
-import PostList from "./components/PostList";
-import PostForm from "./components/PostForm";
-import PostFilter from "./components/PostFilter";
-import "./styles/App.css";
+import React, { useMemo, useState } from "react"; // Import React and required hooks
+import PostList from "./components/PostList"; // Import the PostList component
+import PostForm from "./components/PostForm"; // Import the PostForm component
+import PostFilter from "./components/PostFilter"; // Import the PostFilter component
+import "./styles/App.css"; // Import the CSS file for styling
 
 function App() {
   // Define initial state for posts using useState hook
   const [posts, setPosts] = useState([
+    // Initialize an array of post objects
     { id: 1, title: "JS", dateofpost: "07.08.23", body: "JS is JavaScript" },
     { id: 2, title: "TS", dateofpost: "06.08.23", body: "TS is TypeScript" },
     {
@@ -19,16 +20,16 @@ function App() {
   ]);
 
   // Define state variables for sorting and searching
-  //const [selectedSort, setSelectedSort] = useState();
-  /*const [searchQuery, setSearchQuery] = useState(); */
+  /* const [selectedSort, setSelectedSort] = useState(); // Store the selected sort criteria
+  const [searchQuery, setSearchQuery] = useState(); */ // Store the search query
 
-  const [filter, setFilter] = useState({ sort: '', query: ''});
+  const [filter, setFilter] = useState({ sort: "", query: "" }); // Store filter criteria
 
   // Calculate sorted posts based on selectedSort using useMemo hook
   const sortedPosts = useMemo(() => {
     if (selectedSort) {
       return [...posts].sort((a, b) =>
-        a[selectedSort].localeCompare(b[selectedSort])
+        a[filter.sort].localeCompare(b[selectedSort])
       );
     }
     return posts;
@@ -39,7 +40,7 @@ function App() {
     return sortedPosts.filter((post) =>
       post.title.toLowerCase().includes(searchQuery)
     );
-  }, [searchQuery, sortedPosts]);
+  }, [filter.query, sortedPosts]);
 
   // Define function to create a new post
   const createPost = (newPost) => {
@@ -62,7 +63,13 @@ function App() {
     <div className="App">
       <PostForm create={createPost} /> {/* Render PostForm component */}
       <hr className="hr" />
-      <PostFilter />
+      <PostFilter
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        selectedSort={selectedSort}
+        sortPosts={sortPosts}
+      />{" "}
+      {/* Pass necessary props to PostFilter component */}
       {sortedAndSearchedPosts.length ? (
         <PostList
           remove={removePost}
