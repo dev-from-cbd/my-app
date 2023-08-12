@@ -23,6 +23,10 @@
   padding-top: 1rem;
 }
 
+.h1PostList {
+  text-align: center;
+}
+
 .hr {
   margin-top: 0.5rem;
 }
@@ -121,7 +125,25 @@
   color: #fff;
 }
 
-/* Hover effect for all buttons with the class "my-button" */
 .my-button:hover {
   background-color: #0056b3;
+}
+
+.post-enter {
+  /* opacity: 0; */
+  transform: translateX(-350px);
+}
+
+.post-enter-active {
+  transform: translateX(0px);
+  transition: all 500ms ease-in;
+}
+
+.post-exit {
+  opacity: 1;
+}
+
+.post-exit-active {
+  transform: translateX(-350px);
+  transition: all 500ms ease-in;
 }
