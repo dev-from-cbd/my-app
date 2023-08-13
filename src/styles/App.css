@@ -131,12 +131,12 @@
 
 .post-enter {
   /* opacity: 0; */
-  transform: translateX(-350px);
+  transform: translateX(-111%);
 }
 
 .post-enter-active {
   transform: translateX(0px);
-  transition: all 500ms ease-in;
+  transition: all 600ms ease-in;
 }
 
 .post-exit {
@@ -144,6 +144,6 @@
 }
 
 .post-exit-active {
-  transform: translateX(-350px);
-  transition: all 500ms ease-in;
+  transform: translateX(-111%);
+  transition: all 600ms ease-in;
 }
